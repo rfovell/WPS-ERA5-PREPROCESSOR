@@ -39,8 +39,9 @@ ncrcat e5.oper.an.pl.128_157_r* era5_r.nc <br>
     + Then change name of variable in output file:  ncrename -v VAR_2D,VAR_2RH output_file.nc <br>
     + Change name of output_file.nc if needed:      mv output_file.nc era5_rh2m_aug2019.nc <br>
     
-(5) Have the invariant field SOILHGT available and expressed in meters (not surface geopotential in m2/s2).
- The file era5_SOILHGT.nc is provided here in this repository.
+(5) Have the invariant fields SOILHGT available and expressed in meters (not surface geopotential in m2/s2).
+ The file era5_SOILHGT.nc is provided here in this repository.  The invariant field LANDSEA can be found in
+ the file era5_LANDSEA.nc
  
 (6) Modify Cell #2 for locations, names of files
 
@@ -56,5 +57,8 @@ ncrcat e5.oper.an.pl.128_157_r* era5_r.nc <br>
 This appears to corrupt the soils information.
 
 The notebook creates a set of files named "FILE:" followed by a timestamp similar to what ungrib.exe does.
+
+NOTE: The notebook ERA5_RH2m_computer.ipynb computes 2 m RH using MetPy, which produces slightly different results from 
+what ungrib.exe creates (in rrpr.F).
 
 [end]
