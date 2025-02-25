@@ -61,4 +61,11 @@ The notebook creates a set of files named "FILE:" followed by a timestamp simila
 NOTE: The notebook ERA5_RH2m_computer.ipynb computes 2 m RH using MetPy, which produces slightly different results from 
 what ungrib.exe creates (in rrpr.F).
 
+
+NOTE added 2/24/2025: It was pointed out to me that ERA5's relative humidity (RH) is a weighted average of RH with
+respect to liquid (RH_l) and ice (RH_i) for below-freezing temperatures and ungrib.exe adjusts for this because real.exe
+expects RH_l.  This is not currently accounted for in this code.  Additionally, it appears ungrib.exe does not handle this 
+in a manner that is consistent with ERA5's documentation, so even ungrib.exe is not correct.  It also does not appear that 
+simply replacing RH with specific humidity (Q) will suffice as my tests using Q in place of RH in ungrib.exe (not this 
+preprocessor) do not produce the same results.  Work in progress.
 [end]
